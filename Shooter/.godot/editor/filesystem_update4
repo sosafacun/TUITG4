@@ -1,0 +1,14 @@
+res://scenes/levels/level.tscn
+res://scenes/levels/player.tscn
+res://scenes/Logo.gd
+res://scenes/levels/bed.tscn
+res://scenes/levels/level.gd
+res://scenes/levels/player.gd
+res://scenes/player/player.tscn
+res://scenes/player/player.gd
+res://scenes/objects/bed.tscn
+res://scenes/objects/toilet.tscn
+res://scenes/enemies/drone.gd
+res://scenes/enemies/drone.tscn
+res://scenes/objects/gate.gd
+res://scenes/objects/gate.tscn

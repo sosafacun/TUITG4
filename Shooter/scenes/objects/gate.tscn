@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://hh2d2m0pcaca"]
+
+[ext_resource type="Texture2D" uid="uid://e1gdqbdgv400" path="res://resources/graphics/objects/gate.png" id="1_bafr4"]
+[ext_resource type="Script" path="res://scenes/objects/gate.gd" id="1_yh8wu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfct2"]
+size = Vector2(874, 211)
+
+[node name="Gate" type="StaticBody2D"]
+script = ExtResource("1_yh8wu")
+
+[node name="GateImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_bafr4")
+
+[node name="GateCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(501, 774, 1340, 778, 1445, 737, 1513, 672, 1557, 559, 1559, -777, -1438, -778, -1436, 554, -1398, 660, -1332, 728, -1232, 776, -369, 778, -375, 585, 503, 585)
+
+[node name="GateCrossingArea" type="Area2D" parent="."]
+
+[node name="GateCrossingCollision" type="CollisionShape2D" parent="GateCrossingArea"]
+position = Vector2(64, 690.5)
+shape = SubResource("RectangleShape2D_qfct2")
+
+[connection signal="body_entered" from="GateCrossingArea" to="." method="_on_gate_crossing_area_body_entered"]
+[connection signal="body_exited" from="GateCrossingArea" to="." method="_on_gate_crossing_area_body_exited"]

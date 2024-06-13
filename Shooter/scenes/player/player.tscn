@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmj6itdcd03nf"]
+
+[ext_resource type="Texture2D" uid="uid://bxprgbl4b1twr" path="res://resources/graphics/player/player.png" id="1_7l4x1"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gdfhv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uyu14"]
+radius = 59.0339
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_gdfhv")
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+position = Vector2(2, -38)
+texture = ExtResource("1_7l4x1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uyu14")
+
+[node name="LaserCD" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="GrenadeCD" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="LaserCD" to="." method="_on_laser_cd_timeout"]
+[connection signal="timeout" from="GrenadeCD" to="." method="_on_grenade_cd_timeout"]
