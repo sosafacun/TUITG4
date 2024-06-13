@@ -10,6 +10,8 @@ script = ExtResource("1_jmc45")
 [node name="Gate" parent="." instance=ExtResource("2_35gbr")]
 position = Vector2(521, -558)
 
+[node name="Projectiles" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("2_m45c4")]
 position = Vector2(581, 590)
 

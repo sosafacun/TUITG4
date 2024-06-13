@@ -8,8 +8,8 @@ const greande_cd: float = 1.5
 var can_laser: bool = true
 var can_grenade: bool = true
 
-signal player_shot_laser
-signal player_shot_grenade
+signal player_shot_laser(pos)
+signal player_shot_grenade(pos)
 
 func _process(_delta):
 	
@@ -24,12 +24,16 @@ func _process(_delta):
 		secondary()
 
 func shoot():
-	player_shot_laser.emit()
+	var laser_markers = $LaserStartPositions.get_children()
+	var selected_laser = laser_markers[randi() % laser_markers.size()]
+	
+	player_shot_laser.emit(selected_laser.global_position)
 	can_laser = false
 	$LaserCD.start()
 
 func secondary():
-	player_shot_grenade.emit()
+	var pos = $GrenadeStartPositions/Marker2D.global_position
+	player_shot_grenade.emit(pos)
 	can_grenade = false
 	$GrenadeCD.start()
 
