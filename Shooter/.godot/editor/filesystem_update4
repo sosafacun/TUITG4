@@ -3,3 +3,8 @@ res://scenes/player/player.tscn
 res://scenes/projectiles/grenade.tscn
 res://scenes/projectiles/laser.tscn
 res://scenes/objects/house.tscn
+res://scenes/objects/gate.tscn
+res://scenes/enemies/drone.tscn
+res://scenes/objects/toilet.tscn
+res://scenes/objects/bed.tscn
+res://scenes/objects/steam_vent.tscn
