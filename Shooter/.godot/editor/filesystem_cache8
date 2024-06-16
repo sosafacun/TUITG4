@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1718550460
+::res://::1718565392
 icon.svg::CompressedTexture2D::1837096861695668571::1718207659::1718207663::1::::<><>::
 ::res://resources/::1718218806
 ::res://resources/audio/::1718245982
@@ -211,14 +211,15 @@ drone.tscn::PackedScene::1212336417102473654::1718386320::0::1::::<><>::uid://co
 ::res://scenes/levels/::1718550400
 level.gd::GDScript::-1::1718550162::0::1::::<>Node2D<>::
 level.tscn::PackedScene::2432090296811702107::1718550400::0::1::::<><>::res://scenes/levels/level.gd<>uid://hh2d2m0pcaca::::res://scenes/objects/gate.tscn<>uid://cmj6itdcd03nf::::res://scenes/player/player.tscn<>uid://bkbxse10glwtt::::res://resources/graphics/ground/stones.png<>uid://lq4kahwcmfty::::res://resources/graphics/decals/dirt_patch.png<>uid://isahe1fa3lwh::::res://resources/graphics/tilesets/outside_walls.png<>uid://bd6v5r5wefc4u::::res://resources/graphics/tilesets/soil.png<>uid://ci2vvcipvgkeo::::res://scenes/objects/steam_vent.tscn<>uid://b7wr4wuyrhx5::::res://scenes/objects/house.tscn
-::res://scenes/objects/::1718550401
+::res://scenes/objects/::1718552197
 bed.tscn::PackedScene::3775807237730667118::1718386360::0::1::::<><>::uid://bb0egmeex3t0v::::res://resources/graphics/objects/bed.png<>uid://cm5d6plugi0ed::::res://resources/graphics/objects/pillow_small.png<>uid://d1ed0w0o5bwh1::::res://resources/graphics/objects/pillow_large.png
 gate.gd::GDScript::-1::1718232394::0::1::::<>StaticBody2D<>::
 gate.tscn::PackedScene::507418703755170532::1718386254::0::1::::<><>::uid://e1gdqbdgv400::::res://resources/graphics/objects/gate.png<>res://scenes/objects/gate.gd
-house.tscn::PackedScene::137616622209499600::1718550401::0::1::::<><>::uid://ckfyys32if55x::::res://resources/graphics/tilesets/interior.png<>uid://b65k605btl2jf::::res://scenes/objects/simple_light.tscn
-simple_light.tscn::PackedScene::4624870058131790411::1718550401::0::1::::<><>::uid://sxr0sa8gx4px::::res://resources/graphics/objects/light.png<>uid://bluxcsoctgmsm::::res://resources/graphics/lights/textures/circle.png
+house.tscn::PackedScene::137616622209499600::1718552197::0::1::::<><>::uid://ckfyys32if55x::::res://resources/graphics/tilesets/interior.png<>uid://b65k605btl2jf::::res://scenes/objects/simple_light.tscn<>uid://dwfnu38n5rlxa::::res://scenes/objects/wall_lamp.tscn
+simple_light.tscn::PackedScene::4624870058131790411::1718552196::0::1::::<><>::uid://sxr0sa8gx4px::::res://resources/graphics/objects/light.png<>uid://bluxcsoctgmsm::::res://resources/graphics/lights/textures/circle.png
 steam_vent.tscn::PackedScene::5391402992485151262::1718398858::0::1::::<><>::uid://hmek55dynnvk::::res://resources/graphics/objects/ventilation_hole.png<>uid://bj1aosjg07cvp::::res://resources/graphics/decals/white.png
 toilet.tscn::PackedScene::4000656697270985777::1718386348::0::1::::<><>::uid://d3sj46adw8n3b::::res://resources/graphics/objects/toilet.png
+wall_lamp.tscn::PackedScene::8714565058934158466::1718552196::0::1::::<><>::uid://11np2ys0ei4h::::res://resources/graphics/objects/wall_lamp.png<>uid://bluxcsoctgmsm::::res://resources/graphics/lights/textures/circle.png
 ::res://scenes/player/::1718550400
 player.gd::GDScript::-1::1718549197::0::1::::<>CharacterBody2D<>::
 player.tscn::PackedScene::5635584406630089511::1718550400::0::1::::<><>::uid://bxprgbl4b1twr::::res://resources/graphics/player/player.png<>res://scenes/player/player.gd
