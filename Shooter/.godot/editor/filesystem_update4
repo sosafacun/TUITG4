@@ -1,7 +1,9 @@
 res://scenes/objects/house.tscn
 res://scenes/player/player.tscn
-res://scenes/levels/level.tscn
-res://scenes/objects/steam_vent.tscn
-res://scenes/player/player.gd
-res://scenes/objects/simple_light.tscn
 res://scenes/player/LaserLight.gd
+res://scenes/levels/level.tscn
+res://scenes/objects/simple_light.tscn
+res://scenes/player/player.gd
+res://scenes/projectiles/laser.tscn
+res://scenes/projectiles/laser.gd
+res://scenes/levels/level.gd

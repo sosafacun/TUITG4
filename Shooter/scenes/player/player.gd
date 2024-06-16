@@ -29,8 +29,6 @@ func shoot(player_direction):
 	var laser_markers = $LaserStartPositions.get_children()
 	var selected_laser = laser_markers[randi() % laser_markers.size()]
 	player_shot_laser.emit(selected_laser.global_position, player_direction)
-	$LaserParticles/LaserParticles.emitting = true
-	$LaserParticles/LaserLight.emit_light()
 	can_laser = false
 	$LaserCD.start()
 

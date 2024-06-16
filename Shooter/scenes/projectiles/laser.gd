@@ -4,5 +4,9 @@ extends Area2D
 var direction: Vector2
 
 func _process(delta):
-	pass
 	position += direction * speed * delta
+
+func emit_particles_and_light():
+	$LaserParticles/LaserParticles.emitting = true
+	$LaserParticles/LaserLight.emit_light()
+	$LaserParticles/LaserLightTimeOut.start()
