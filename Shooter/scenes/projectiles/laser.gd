@@ -5,6 +5,7 @@ var direction: Vector2
 
 func _process(delta):
 	position += direction * speed * delta
+	emit_particles_and_light()
 
 func emit_particles_and_light():
 	$LaserParticles/LaserParticles.emitting = true
