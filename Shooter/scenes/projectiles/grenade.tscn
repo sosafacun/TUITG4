@@ -56,6 +56,42 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GrenadeImage:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Explosion/GrenadeExplosion:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Explosion/Grenade_Flash:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_trari"]
 resource_name = "Grenade_Flash"
@@ -86,6 +122,30 @@ tracks/1/keys = {
 "method": &"explode"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GrenadeImage:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Explosion/Grenade_Flash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_txdb1"]
 _data = {
@@ -111,6 +171,16 @@ texture = ExtResource("1_4kea5")
 
 [node name="Explosion" type="Node2D" parent="."]
 
+[node name="Grenade_Flash" type="PointLight2D" parent="Explosion"]
+color = Color(0.72149, 0.113221, 0.112334, 1)
+energy = 10.0
+shadow_enabled = true
+shadow_color = Color(0.160784, 0.00784314, 0.00784314, 0.0509804)
+shadow_filter = 1
+shadow_filter_smooth = 3.9
+texture = ExtResource("4_gk22x")
+texture_scale = 0.08
+
 [node name="GrenadeExplosion" type="Sprite2D" parent="Explosion"]
 texture = ExtResource("3_3vgfu")
 hframes = 8
@@ -122,13 +192,3 @@ libraries = {
 "": SubResource("AnimationLibrary_txdb1")
 }
 autoplay = "Grenade_Flash"
-
-[node name="Grenade_Flash" type="PointLight2D" parent="Explosion"]
-color = Color(0.72149, 0.113221, 0.112334, 1)
-energy = 0.0
-shadow_enabled = true
-shadow_color = Color(0.160784, 0.00784314, 0.00784314, 0.0509804)
-shadow_filter = 1
-shadow_filter_smooth = 3.9
-texture = ExtResource("4_gk22x")
-texture_scale = 0.08
