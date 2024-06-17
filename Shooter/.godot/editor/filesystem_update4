@@ -1,6 +1,4 @@
-res://scenes/levels/level.tscn
-res://scenes/objects/wall_lamp.tscn
 res://scenes/objects/house.tscn
-res://scenes/objects/simple_light.tscn
-res://scenes/projectiles/laser.tscn
+res://scenes/levels/level.tscn
 res://scenes/projectiles/grenade.tscn
+res://scenes/player/player.gd

@@ -12,7 +12,6 @@ signal player_shot_laser(pos, direction)
 signal player_shot_grenade(pos, direction)
 
 func _process(_delta):
-	
 	move()
 	
 	var player_direction = (get_global_mouse_position() - position).normalized()

@@ -11,6 +11,21 @@ bounce = 0.4
 [sub_resource type="CircleShape2D" id="CircleShape2D_cibgd"]
 radius = 22.3607
 
+[sub_resource type="Animation" id="Animation_ur0nf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GrenadeExplosion:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_nasxr"]
 resource_name = "explosion_animation"
 length = 2.4
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [27, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 48]
-}
-
-[sub_resource type="Animation" id="Animation_ur0nf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GrenadeExplosion:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_txdb1"]
@@ -64,6 +64,7 @@ texture = ExtResource("1_4kea5")
 shape = SubResource("CircleShape2D_cibgd")
 
 [node name="GrenadeExplosion" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("3_3vgfu")
 hframes = 8
 vframes = 8
