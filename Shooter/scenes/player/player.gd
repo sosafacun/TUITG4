@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-const speed: float = 500
+var speed: float = 500
+@export var max_speed: int = 500
 
 const laser_cd: float = 0.5
 const greande_cd: float = 1.5

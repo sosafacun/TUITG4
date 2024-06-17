@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://b7wr4wuyrhx5"]
+[gd_scene load_steps=30 format=3 uid="uid://b7wr4wuyrhx5"]
 
+[ext_resource type="Script" path="res://scenes/objects/house.gd" id="1_7hank"]
 [ext_resource type="Texture2D" uid="uid://ckfyys32if55x" path="res://resources/graphics/tilesets/interior.png" id="1_fuafl"]
 [ext_resource type="PackedScene" uid="uid://b65k605btl2jf" path="res://scenes/objects/simple_light.tscn" id="2_0urw7"]
 [ext_resource type="PackedScene" uid="uid://dwfnu38n5rlxa" path="res://scenes/objects/wall_lamp.tscn" id="3_x3ruq"]
@@ -25206,6 +25207,7 @@ sources/0 = SubResource("TileSetAtlasSource_dkwpp")
 
 [node name="House" type="Area2D"]
 collision_layer = 16
+script = ExtResource("1_7hank")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-778, -1810, 1191, -1811, 1377, -1705, 1420, -1566, 1420, -1165, 1455, -1070, 1544, -1031, 3135, -1031, 3312, -946, 3371, -797, 3371, 407, 3307, 563, 3121, 640, -796, 641, -984, 542, -1031, 409, -1031, -1576, -975, -1725)
@@ -25245,3 +25247,7 @@ scale = Vector2(0.239999, 0.319999)
 [node name="SimpleLight3" parent="." instance=ExtResource("2_0urw7")]
 position = Vector2(3236, -229)
 rotation = 1.5708
+
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

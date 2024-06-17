@@ -10,3 +10,5 @@ func _process(_delta):
 	
 	move_and_slide()
 	
+func hit():
+	pass

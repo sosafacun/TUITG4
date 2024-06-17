@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bawef3wu5kcqd"]
+[gd_scene load_steps=14 format=3 uid="uid://bawef3wu5kcqd"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_jmc45"]
 [ext_resource type="PackedScene" uid="uid://hh2d2m0pcaca" path="res://scenes/objects/gate.tscn" id="2_35gbr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bd6v5r5wefc4u" path="res://resources/graphics/tilesets/soil.png" id="5_fp5na"]
 [ext_resource type="PackedScene" uid="uid://ci2vvcipvgkeo" path="res://scenes/objects/steam_vent.tscn" id="6_juifw"]
 [ext_resource type="PackedScene" uid="uid://b7wr4wuyrhx5" path="res://scenes/objects/house.tscn" id="8_x6oss"]
+[ext_resource type="PackedScene" uid="uid://rjjaeib234pu" path="res://scenes/enemies/drone.tscn" id="10_67pfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xiehy"]
 resource_name = "walls"
@@ -83,12 +84,17 @@ position = Vector2(521, -558)
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_m45c4")]
-position = Vector2(-1780, 2462)
+position = Vector2(196, 927)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
+[node name="Drone" parent="." instance=ExtResource("10_67pfs")]
+position = Vector2(-406, 1175)
+
+[connection signal="player_entered_house" from="House" to="." method="_on_house_player_entered_house"]
+[connection signal="player_exited_house" from="House" to="." method="_on_house_player_exited_house"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_exited_gate" from="Gate" to="." method="_on_gate_player_exited_gate"]
 [connection signal="player_shot_grenade" from="Player" to="." method="_on_player_player_shot_grenade"]

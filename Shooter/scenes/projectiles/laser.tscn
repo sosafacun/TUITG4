@@ -69,4 +69,10 @@ script = ExtResource("5_1pa4o")
 [node name="LaserLightTimeOut" type="Timer" parent="LaserParticles"]
 wait_time = 0.15
 
+[node name="LaserTimeout" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="LaserParticles/LaserLightTimeOut" to="LaserParticles/LaserLight" method="_on_laser_light_time_out_timeout"]
+[connection signal="timeout" from="LaserTimeout" to="." method="_on_timer_timeout"]
