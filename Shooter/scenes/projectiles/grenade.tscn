@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://5jx4jsv6pj2y"]
+[gd_scene load_steps=11 format=3 uid="uid://5jx4jsv6pj2y"]
 
 [ext_resource type="Texture2D" uid="uid://hyr351kygybg" path="res://resources/graphics/projectiles/grenade.png" id="1_4kea5"]
 [ext_resource type="Script" path="res://scenes/projectiles/grenade.gd" id="1_xmq1x"]
 [ext_resource type="Texture2D" uid="uid://dqhqutyuqus4f" path="res://resources/graphics/explosions/explosion_3.png" id="3_3vgfu"]
+[ext_resource type="Texture2D" uid="uid://bluxcsoctgmsm" path="res://resources/graphics/lights/textures/circle.png" id="4_gk22x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hah3v"]
 friction = 10.0
@@ -16,7 +17,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GrenadeExplosion:frame")
+tracks/0/path = NodePath("Explosion/GrenadeExplosion:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,11 +29,11 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_nasxr"]
 resource_name = "explosion_animation"
-length = 2.4
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GrenadeExplosion:frame")
+tracks/0/path = NodePath("Explosion/GrenadeExplosion:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,9 +42,54 @@ tracks/0/keys = {
 "update": 1,
 "values": [27, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 48]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_trari"]
+resource_name = "Grenade_Flash"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion/Grenade_Flash:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [10.0, 0.0, 10.0, 0.0, 10.0, 0.0, 10.0, 0.0, 10.0, 0.0, 10.0, 0.0, 10.0, 0.0, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_txdb1"]
 _data = {
+"Grenade_Flash": SubResource("Animation_trari"),
 "RESET": SubResource("Animation_ur0nf"),
 "explosion_animation": SubResource("Animation_nasxr")
 }
@@ -56,21 +102,33 @@ gravity_scale = 0.0
 linear_damp = 1.6
 script = ExtResource("1_xmq1x")
 
+[node name="GrenadeShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cibgd")
+
 [node name="GrenadeImage" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_4kea5")
 
-[node name="GrenadeShape" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_cibgd")
+[node name="Explosion" type="Node2D" parent="."]
 
-[node name="GrenadeExplosion" type="Sprite2D" parent="."]
-visible = false
+[node name="GrenadeExplosion" type="Sprite2D" parent="Explosion"]
 texture = ExtResource("3_3vgfu")
 hframes = 8
 vframes = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="GrenadeExplosionAnimation" type="AnimationPlayer" parent="Explosion"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_txdb1")
 }
-autoplay = "explosion_animation"
+autoplay = "Grenade_Flash"
+
+[node name="Grenade_Flash" type="PointLight2D" parent="Explosion"]
+color = Color(0.72149, 0.113221, 0.112334, 1)
+energy = 0.0
+shadow_enabled = true
+shadow_color = Color(0.160784, 0.00784314, 0.00784314, 0.0509804)
+shadow_filter = 1
+shadow_filter_smooth = 3.9
+texture = ExtResource("4_gk22x")
+texture_scale = 0.08

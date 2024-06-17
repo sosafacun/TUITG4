@@ -25229,7 +25229,7 @@ rotation = 3.14159
 position = Vector2(1663, -893)
 
 [node name="WallLamp" parent="." instance=ExtResource("3_x3ruq")]
-position = Vector2(-897, 189)
+position = Vector2(-897, -936)
 rotation = -1.5708
 scale = Vector2(0.239999, 0.319999)
 

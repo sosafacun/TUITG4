@@ -1,4 +1,4 @@
+res://scenes/projectiles/grenade.tscn
 res://scenes/objects/house.tscn
 res://scenes/levels/level.tscn
-res://scenes/projectiles/grenade.tscn
-res://scenes/player/player.gd
+res://scenes/projectiles/grenade.gd
