@@ -1,3 +1,4 @@
+TileMap
 Timer
 PointLight2D
 Node2D
@@ -9,6 +10,5 @@ CollisionShape2D
 StaticBody2D
 GPUParticles2D
 CollisionPolygon2D
-TileMap
 Area2D
 Camera2D
