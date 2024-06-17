@@ -1,20 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://rjjaeib234pu"]
+[gd_scene load_steps=5 format=3 uid="uid://vrkkucljj4ic"]
 
+[ext_resource type="PackedScene" uid="uid://rjjaeib234pu" path="res://scenes/enemies/HittableContainer.tscn" id="1_3ahrr"]
 [ext_resource type="Texture2D" uid="uid://cox8fi2gxf7qv" path="res://resources/graphics/enemies/drone.png" id="1_6xgrd"]
 [ext_resource type="Script" path="res://scenes/enemies/drone.gd" id="1_njdyd"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qtycj"]
-radius = 68.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukp1x"]
+radius = 69.0
 height = 298.0
 
-[node name="Drone" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 15
+[node name="HittableContainer" instance=ExtResource("1_3ahrr")]
 script = ExtResource("1_njdyd")
 
-[node name="DroneImage" type="Sprite2D" parent="."]
+[node name="HittableContainerImage" parent="." index="0"]
 texture = ExtResource("1_6xgrd")
 
-[node name="DroneShape" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_qtycj")
+[node name="HittableContainerShape" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_ukp1x")

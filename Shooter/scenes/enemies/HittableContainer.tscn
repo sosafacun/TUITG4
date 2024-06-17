@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://rjjaeib234pu"]
+
+[ext_resource type="Script" path="res://scenes/enemies/HittableContainer.gd" id="1_ux3sf"]
+
+[node name="HittableContainer" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_ux3sf")
+
+[node name="HittableContainerImage" type="Sprite2D" parent="."]
+
+[node name="HittableContainerShape" type="CollisionShape2D" parent="."]
+rotation = 1.5708
