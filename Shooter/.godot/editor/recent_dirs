@@ -1,3 +1,5 @@
+res://globals
+res://scenes/user_interface
 res://scenes/levels
 res://scenes/objects
 res://scenes/enemies

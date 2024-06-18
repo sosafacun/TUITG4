@@ -7,7 +7,7 @@ func emit_light():
 	enabled = true
 	energy = initial_energy
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "energy", 0, laser_light_duration)
+	tween.tween_property(self, "energy", 1, laser_light_duration)
 
 func _on_laser_light_time_out_timeout():
 	enabled = false

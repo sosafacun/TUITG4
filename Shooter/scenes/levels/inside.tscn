@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba5a6jti5mbj5"]
+[gd_scene load_steps=8 format=3 uid="uid://ba5a6jti5mbj5"]
 
 [ext_resource type="PackedScene" uid="uid://bawef3wu5kcqd" path="res://scenes/levels/level.tscn" id="1_0rptr"]
+[ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_4nuvi"]
 [ext_resource type="TileSet" uid="uid://bdy6m1cf8ebpc" path="res://scenes/levels/house.tres" id="2_10cxk"]
 [ext_resource type="PackedScene" uid="uid://dwfnu38n5rlxa" path="res://scenes/objects/wall_lamp.tscn" id="3_0sd6d"]
 [ext_resource type="PackedScene" uid="uid://b65k605btl2jf" path="res://scenes/objects/simple_light.tscn" id="4_arw44"]
+[ext_resource type="Texture2D" uid="uid://bluxcsoctgmsm" path="res://resources/graphics/lights/textures/circle.png" id="5_yi6n2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmww0"]
+size = Vector2(1780.5, 624)
 
 [node name="Inside" instance=ExtResource("1_0rptr")]
+script = ExtResource("2_4nuvi")
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 tile_set = ExtResource("2_10cxk")
@@ -33,3 +39,26 @@ position = Vector2(-1061, -952)
 [node name="SimpleLight2" parent="Lights" index="3" instance=ExtResource("4_arw44")]
 position = Vector2(-1776, -1365)
 rotation = 1.5708
+
+[node name="Player" parent="." index="3"]
+position = Vector2(196, 1600)
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4"]
+position = Vector2(196, 1600)
+color = Color(0, 0.966805, 0.967122, 1)
+texture = ExtResource("5_yi6n2")
+texture_scale = 3.0
+
+[node name="ExitGateArea" type="Area2D" parent="." index="5"]
+position = Vector2(-100, 2117)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
+position = Vector2(119.25, -2)
+shape = SubResource("RectangleShape2D_rmww0")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="6"]
+position = Vector2(-3212, 359)
+color = Color(0.792428, 0.898165, 0.987432, 1)
+blend_mode = 1
+
+[connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]
