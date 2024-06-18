@@ -48,7 +48,6 @@ sources/1 = SubResource("TileSetAtlasSource_88c3y")
 
 [node name="Outside" instance=ExtResource("1_fcwo5")]
 script = ExtResource("2_absnj")
-outside_level_scene = null
 
 [node name="Ground" type="Node2D" parent="." index="0"]
 

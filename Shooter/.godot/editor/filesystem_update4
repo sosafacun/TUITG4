@@ -14,3 +14,5 @@ res://scenes/projectiles/laser.tscn
 res://scenes/projectiles/LaserLight.gd
 res://scenes/user_interface/ui.gd
 res://scenes/levels/level.gd
+res://scenes/user_interface/transition_layer.tscn
+res://scenes/user_interface/transition_layer.gd
