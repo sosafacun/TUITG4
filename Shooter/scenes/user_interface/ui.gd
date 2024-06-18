@@ -6,12 +6,19 @@ extends CanvasLayer
 @onready var grenade_label: Label = $GrenadeCounter/VBoxContainer/Label
 @onready var grenade_icon: TextureRect = $GrenadeCounter/VBoxContainer/TextureRect
 
+@onready var hp_bar: TextureProgressBar = $MarginContainer/TextureProgressBar
+
 var green: Color = Color("6bbfa3")
 var red: Color = Color("ff0000")
 
 func _ready():
+	Globals.connect("stat_change", update_stats)
+	update_stats()
+
+func update_stats():
 	update_laser_text()
 	update_grenade_text()
+	update_hp_text()
 
 func update_laser_text():
 	laser_lable.text = str(Globals.laser_amount)
@@ -20,6 +27,9 @@ func update_laser_text():
 func update_grenade_text():
 	grenade_label.text = str(Globals.grenade_amount)
 	update_color(Globals.grenade_amount, grenade_label, grenade_icon)
+
+func update_hp_text():
+	hp_bar.value = Globals.hp
 
 func update_color(ammo_amount:int, ui_label: Label, ui_icon: TextureRect) -> void:
 	if(ammo_amount != 0):
