@@ -27,10 +27,10 @@ shape = SubResource("CapsuleShape2D_lfram")
 
 [node name="WallLampLight" type="PointLight2D" parent="."]
 position = Vector2(0, 8)
-color = Color(0.929412, 0.0313726, 0.0666667, 0.905882)
-energy = 10.0
+color = Color(0.808368, 0.000468023, 0.798302, 0.905882)
+energy = 5.0
 shadow_enabled = true
-shadow_color = Color(0.0313726, 0, 0, 0.0352941)
+shadow_color = Color(0.0431373, 0, 0.0392157, 0.243137)
 shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = ExtResource("2_v7hd7")

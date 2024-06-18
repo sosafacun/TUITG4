@@ -10,3 +10,4 @@ res://scenes/enemies/HittableContainer.gd
 res://scenes/objects/billboard.gd
 res://scenes/objects/billboard.tscn
 res://scenes/objects/house.tscn
+res://scenes/objects/wall_lamp.tscn
