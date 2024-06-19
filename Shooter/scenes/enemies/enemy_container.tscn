@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkqftdstqvgyq"]
+[gd_scene load_steps=4 format=3 uid="uid://dkqftdstqvgyq"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy_container.gd" id="1_fvltv"]
+[ext_resource type="Shader" path="res://scenes/enemies/enemy_container.gdshader" id="2_kb0nk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4bd2"]
+shader = ExtResource("2_kb0nk")
+shader_parameter/color = Color(0.173699, 1.87259e-07, 4.21144e-08, 1)
+shader_parameter/progress = 0.0
 
 [node name="EnemyContainer" type="CharacterBody2D" groups=["Enemies", "Entity"]]
 collision_layer = 2
@@ -8,14 +14,14 @@ collision_mask = 11
 script = ExtResource("1_fvltv")
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
-position = Vector2(26, 24)
+material = SubResource("ShaderMaterial_r4bd2")
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
 
 [node name="AttackNode" type="Node2D" parent="."]
 
 [node name="ProjectileCD" type="Timer" parent="AttackNode"]
-wait_time = 0.5
+wait_time = 0.1
 one_shot = true
 
 [node name="EnemyProjectileSpawnPoints" type="Node2D" parent="AttackNode"]
@@ -25,6 +31,11 @@ collision_layer = 16
 
 [node name="AttackRangeCollision" type="CollisionShape2D" parent="AttackNode/AttackRange"]
 
+[node name="HitBlink" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="timeout" from="AttackNode/ProjectileCD" to="." method="_on_projectile_cd_timeout"]
 [connection signal="body_entered" from="AttackNode/AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackNode/AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="HitBlink" to="." method="_on_hit_blink_timeout"]

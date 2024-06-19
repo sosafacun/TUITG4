@@ -15,6 +15,7 @@ var grenade_amount: int = 5:
 var player_hp: int = 60:
 	set(value):
 		player_hp = value
+		player_hp = min(value,100)
 		stat_change.emit()
 
 var can_player_be_hit: bool = true:

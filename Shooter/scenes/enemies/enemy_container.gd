@@ -10,6 +10,8 @@ var can_enemy_shoot: bool = true
 @export var health: int = 0
 @export var damage: int = 10
 
+@onready var shader_material: Shader = $EnemySprite.material.get_shader()
+
 var selected_gun = gun_amount - 1
 
 func _process(_delta):
@@ -47,5 +49,10 @@ func _on_projectile_cd_timeout():
 
 func hit(_damage:int):
 	health -= _damage
+	shader_material.set_shader_parameter("progress", 1)
+	$HitBlink.start()
 	if(health <= 0):
 		$".".queue_free()
+
+func _on_hit_blink_timeout():
+	shader_material.set_shader_parameter("progress", 0)

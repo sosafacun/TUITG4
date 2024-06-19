@@ -12,3 +12,5 @@ res://globals/globals.gd
 res://scenes/projectiles/laser.gd
 res://scenes/levels/level.gd
 res://scenes/enemies/scout.tscn
+res://scenes/enemies/enemy_container.gdshader
+res://scenes/projectiles/laser.tscn
