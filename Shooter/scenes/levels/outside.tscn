@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://tkub65rbktdk"]
+[gd_scene load_steps=13 format=3 uid="uid://tkub65rbktdk"]
 
 [ext_resource type="PackedScene" uid="uid://bawef3wu5kcqd" path="res://scenes/levels/level.tscn" id="1_fcwo5"]
 [ext_resource type="PackedScene" uid="uid://hh2d2m0pcaca" path="res://scenes/objects/gate.tscn" id="2_7as6g"]
@@ -9,8 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bd6v5r5wefc4u" path="res://resources/graphics/tilesets/soil.png" id="5_jpjsf"]
 [ext_resource type="PackedScene" uid="uid://ci2vvcipvgkeo" path="res://scenes/objects/steam_vent.tscn" id="6_olsjp"]
 [ext_resource type="PackedScene" uid="uid://b7wr4wuyrhx5" path="res://scenes/objects/house.tscn" id="7_8yem8"]
-[ext_resource type="PackedScene" uid="uid://bt6jqhkbm2max" path="res://scenes/items/item.tscn" id="12_kkoqe"]
-[ext_resource type="PackedScene" uid="uid://y017ww6786fg" path="res://scenes/objects/crate.tscn" id="13_q3hwb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xiehy"]
 resource_name = "walls"
@@ -86,14 +84,8 @@ rotation = -0.762709
 scale = Vector2(0.6, 0.6)
 metadata/_edit_lock_ = true
 
-[node name="Crate" parent="." index="4" instance=ExtResource("13_q3hwb")]
-position = Vector2(987, 476)
-
 [node name="Player" parent="." index="6"]
 position = Vector2(593, 287)
-
-[node name="Item" parent="." index="7" instance=ExtResource("12_kkoqe")]
-position = Vector2(254, 325)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="body_entered" from="House" to="." method="_on_house_body_entered"]

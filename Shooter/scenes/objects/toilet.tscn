@@ -6,17 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://dg8xgg2wcxrcq" path="res://resources/graphics/objects/lid.png" id="3_mra42"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t7pc2"]
-radius = 100.841
+radius = 92.5084
 
 [node name="Toilet" instance=ExtResource("1_p5i66")]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("2_ycikj")
 item_spawn_count = 1
 
 [node name="HittableContainerBase" parent="." index="0"]
+position = Vector2(0, -13.75)
 texture = ExtResource("1_76o6e")
 
 [node name="HittableContainerLid" parent="." index="1"]
-position = Vector2(0, 16)
+position = Vector2(0, 8.5)
 texture = ExtResource("3_mra42")
 
 [node name="HittableContainerShape" parent="." index="2"]

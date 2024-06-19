@@ -11,21 +11,17 @@ size = Vector2(178.999, 402.001)
 [node name="Crate" instance=ExtResource("1_3mukh")]
 script = ExtResource("2_gwtb1")
 item_spawn_count = 5
-metadata/_edit_lock_ = true
 
 [node name="HittableContainerBase" parent="." index="0"]
 texture = ExtResource("2_lkmi6")
-metadata/_edit_lock_ = true
 
 [node name="HittableContainerLid" parent="." index="1"]
 position = Vector2(0, 6)
 texture = ExtResource("3_twhmm")
-metadata/_edit_lock_ = true
 
 [node name="HittableContainerShape" parent="." index="2"]
 position = Vector2(-7.62939e-06, 0.499996)
 shape = SubResource("RectangleShape2D_hsh6a")
-metadata/_edit_lock_ = true
 
 [node name="Marker2D2" type="Marker2D" parent="SpawnPoints" index="0"]
 position = Vector2(106, -56)
