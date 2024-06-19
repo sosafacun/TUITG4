@@ -1,18 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8pv56nofj8rf"]
+[gd_scene load_steps=4 format=3 uid="uid://c8pv56nofj8rf"]
 
-[ext_resource type="PackedScene" uid="uid://rjjaeib234pu" path="res://scenes/enemies/HittableContainer.tscn" id="1_wh6aq"]
 [ext_resource type="Texture2D" uid="uid://rqrcnqcuo71f" path="res://resources/graphics/objects/Billboard.png" id="2_ih0i8"]
 [ext_resource type="Script" path="res://scenes/objects/billboard.gd" id="2_qtnpj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hna7p"]
 size = Vector2(41.9978, 1227)
 
-[node name="Billboard" instance=ExtResource("1_wh6aq")]
+[node name="Billboard" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 15
 script = ExtResource("2_qtnpj")
 
-[node name="HittableContainerImage" parent="." index="0"]
+[node name="HittableContainerImage" type="Sprite2D" parent="."]
 texture = ExtResource("2_ih0i8")
 
-[node name="HittableContainerShape" parent="." index="1"]
+[node name="HittableContainerShape" type="CollisionShape2D" parent="."]
 position = Vector2(-0.500037, -14.9989)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_hna7p")

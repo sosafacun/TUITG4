@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://tkub65rbktdk"]
+[gd_scene load_steps=15 format=3 uid="uid://tkub65rbktdk"]
 
 [ext_resource type="PackedScene" uid="uid://bawef3wu5kcqd" path="res://scenes/levels/level.tscn" id="1_fcwo5"]
 [ext_resource type="PackedScene" uid="uid://hh2d2m0pcaca" path="res://scenes/objects/gate.tscn" id="2_7as6g"]
@@ -9,9 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bd6v5r5wefc4u" path="res://resources/graphics/tilesets/soil.png" id="5_jpjsf"]
 [ext_resource type="PackedScene" uid="uid://ci2vvcipvgkeo" path="res://scenes/objects/steam_vent.tscn" id="6_olsjp"]
 [ext_resource type="PackedScene" uid="uid://b7wr4wuyrhx5" path="res://scenes/objects/house.tscn" id="7_8yem8"]
-[ext_resource type="PackedScene" uid="uid://vrkkucljj4ic" path="res://scenes/enemies/drone.tscn" id="10_o5q0d"]
-[ext_resource type="PackedScene" uid="uid://c8pv56nofj8rf" path="res://scenes/objects/billboard.tscn" id="10_u6d8p"]
 [ext_resource type="PackedScene" uid="uid://bt6jqhkbm2max" path="res://scenes/items/item.tscn" id="12_kkoqe"]
+[ext_resource type="PackedScene" uid="uid://y017ww6786fg" path="res://scenes/objects/crate.tscn" id="13_q3hwb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xiehy"]
 resource_name = "walls"
@@ -51,6 +50,8 @@ sources/1 = SubResource("TileSetAtlasSource_88c3y")
 script = ExtResource("2_absnj")
 
 [node name="Ground" type="Node2D" parent="." index="0"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -77,23 +78,22 @@ position = Vector2(0, 514)
 
 [node name="Gate" parent="." index="1" instance=ExtResource("2_7as6g")]
 position = Vector2(532, -617)
+metadata/_edit_lock_ = true
 
 [node name="House" parent="." index="2" instance=ExtResource("7_8yem8")]
 position = Vector2(-1684, 2056)
 rotation = -0.762709
 scale = Vector2(0.6, 0.6)
+metadata/_edit_lock_ = true
 
-[node name="Billboard" parent="." index="3" instance=ExtResource("10_u6d8p")]
-position = Vector2(654, 724)
-
-[node name="Drone" parent="." index="4" instance=ExtResource("10_o5q0d")]
-position = Vector2(571, 1232)
+[node name="Item" parent="." index="5" instance=ExtResource("12_kkoqe")]
+position = Vector2(254, 325)
 
 [node name="Player" parent="." index="6"]
 position = Vector2(593, 287)
 
-[node name="Item" parent="." index="7" instance=ExtResource("12_kkoqe")]
-position = Vector2(254, 325)
+[node name="Crate" parent="." index="7" instance=ExtResource("13_q3hwb")]
+position = Vector2(987, 476)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="body_entered" from="House" to="." method="_on_house_body_entered"]

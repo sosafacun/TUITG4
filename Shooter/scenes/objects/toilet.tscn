@@ -1,17 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw87h4nbtw6sr"]
+[gd_scene load_steps=6 format=3 uid="uid://ncpl4ucrobli"]
 
 [ext_resource type="Texture2D" uid="uid://d3sj46adw8n3b" path="res://resources/graphics/objects/toilet.png" id="1_76o6e"]
+[ext_resource type="PackedScene" uid="uid://rjjaeib234pu" path="res://scenes/enemies/HittableContainer.tscn" id="1_p5i66"]
+[ext_resource type="Script" path="res://scenes/objects/toilet.gd" id="2_ycikj"]
+[ext_resource type="Texture2D" uid="uid://dg8xgg2wcxrcq" path="res://resources/graphics/objects/lid.png" id="3_mra42"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jl51o"]
-radius = 93.0
-height = 246.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_t7pc2"]
+radius = 100.841
 
-[node name="Toilet" type="StaticBody2D"]
+[node name="Toilet" instance=ExtResource("1_p5i66")]
 collision_layer = 4
 collision_mask = 11
+script = ExtResource("2_ycikj")
 
-[node name="ToiletImage" type="Sprite2D" parent="."]
+[node name="HittableContainerBase" parent="." index="0"]
 texture = ExtResource("1_76o6e")
 
-[node name="ToiletShape" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_jl51o")
+[node name="HittableContainerLid" parent="." index="1"]
+position = Vector2(0, 16)
+texture = ExtResource("3_mra42")
+
+[node name="HittableContainerShape" parent="." index="2"]
+shape = SubResource("CircleShape2D_t7pc2")
+
+[node name="Marker2D" parent="SpawnPoints" index="0"]
+position = Vector2(-1, 31)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints" index="1"]
+position = Vector2(-37, 44)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints" index="2"]
+position = Vector2(41, 43)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPoints" index="3"]
+position = Vector2(-6, -31)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnPoints" index="4"]
+position = Vector2(-52, -45)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnPoints" index="5"]
+position = Vector2(55, -39)

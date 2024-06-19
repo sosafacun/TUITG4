@@ -1,8 +1,11 @@
-extends CharacterBody2D
+extends StaticBody2D
 class_name HittableContainer
 
-func _process(_delta):
-	pass
-	
+@onready var current_direction: Vector2 = Vector2.DOWN.rotated(rotation)
+signal open(spawn_point, direction)
+
+
 func hit():
-	pass
+	$HittableContainerLid.hide()
+	var spawn_point = $SpawnPoints.get_child(randi()%$SpawnPoints.get_child_count()).global_position
+	open.emit(spawn_point, current_direction)
