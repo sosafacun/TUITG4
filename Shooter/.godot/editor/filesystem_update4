@@ -15,3 +15,6 @@ res://scenes/player/player.gd
 res://scenes/enemies/scout.gd
 res://scenes/projectiles/laser.tscn
 res://scenes/items/item.tscn
+res://scenes/projectiles/grenade.tscn
+res://scenes/player/player.tscn
+res://scenes/projectiles/grenade.gd
