@@ -29,7 +29,7 @@ func update_grenade_text():
 	update_color(Globals.grenade_amount, grenade_label, grenade_icon)
 
 func update_hp_text():
-	hp_bar.value = Globals.hp
+	hp_bar.value = Globals.player_hp
 
 func update_color(ammo_amount:int, ui_label: Label, ui_icon: TextureRect) -> void:
 	if(ammo_amount != 0):

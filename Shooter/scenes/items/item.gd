@@ -30,5 +30,5 @@ func _on_body_entered(_body):
 	if (type == 'grenade'):
 		Globals.grenade_amount += 1
 	if (type == 'health'):
-		Globals.hp += 10
+		Globals.player_hp += 10
 	queue_free()

@@ -7,6 +7,7 @@ var player_nearby: bool = false
 var can_enemy_shoot: bool = true
 
 @export var gun_amount: int = 0
+@export var health: int = 0
 var selected_gun = gun_amount - 1
 
 func _process(_delta):
@@ -41,3 +42,8 @@ func _on_attack_range_body_exited(_body):
 
 func _on_projectile_cd_timeout():
 	can_enemy_shoot = true
+
+func hit(_damage:int):
+	health -= _damage
+	if(health == 0):
+		$".".queue_free()

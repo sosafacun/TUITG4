@@ -17,7 +17,7 @@ func emit_particles_and_light():
 
 func _on_body_entered(body):
 	if "hit" in body:
-		body.hit()
+		body.hit(10)
 	queue_free()
 
 func _on_timer_timeout():

@@ -7,7 +7,7 @@ signal open(spawn_point, direction)
 @export var item_spawn_count: int = 0
 var opened: bool = false
 
-func hit():
+func hit(_damage:int):
 	$HittableContainerLid.hide()
 	if not opened:
 		for i in range (item_spawn_count):

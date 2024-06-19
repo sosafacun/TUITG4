@@ -12,9 +12,9 @@ var grenade_amount: int = 5:
 		grenade_amount = value
 		stat_change.emit()
 		
-var hp: int = 60:
+var player_hp: int = 60:
 	set(value):
-		hp = value
+		player_hp = value
 		stat_change.emit()
 
 var player_position: Vector2

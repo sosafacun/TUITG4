@@ -54,3 +54,6 @@ func _on_grenade_cd_timeout():
 
 func _on_laser_cd_timeout():
 	can_laser = true
+
+func hit(damage: int):
+	Globals.player_hp -= damage

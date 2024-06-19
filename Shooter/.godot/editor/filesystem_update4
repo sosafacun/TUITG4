@@ -18,3 +18,7 @@ res://scenes/items/item.tscn
 res://scenes/projectiles/grenade.tscn
 res://scenes/player/player.tscn
 res://scenes/projectiles/grenade.gd
+res://scenes/user_interface/ui.gd
+res://scenes/items/item.gd
+res://scenes/projectiles/laser.gd
+res://scenes/enemies/HittableContainer.gd

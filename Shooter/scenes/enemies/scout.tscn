@@ -13,6 +13,7 @@ radius = 1062.25
 [node name="Scout" instance=ExtResource("1_emlmh")]
 script = ExtResource("2_qp7n3")
 gun_amount = 2
+health = 30
 
 [node name="EnemySprite" parent="." index="0"]
 position = Vector2(32, 24)
