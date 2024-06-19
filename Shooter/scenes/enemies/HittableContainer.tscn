@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/enemies/HittableContainer.gd" id="1_ux3sf"]
 
 [node name="HittableContainer" type="StaticBody2D" groups=["Container"]]
-collision_layer = 2
-collision_mask = 15
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_ux3sf")
 
 [node name="HittableContainerBase" type="Sprite2D" parent="."]

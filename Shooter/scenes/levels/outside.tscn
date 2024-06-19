@@ -86,14 +86,14 @@ rotation = -0.762709
 scale = Vector2(0.6, 0.6)
 metadata/_edit_lock_ = true
 
-[node name="Item" parent="." index="5" instance=ExtResource("12_kkoqe")]
-position = Vector2(254, 325)
+[node name="Crate" parent="." index="4" instance=ExtResource("13_q3hwb")]
+position = Vector2(987, 476)
 
 [node name="Player" parent="." index="6"]
 position = Vector2(593, 287)
 
-[node name="Crate" parent="." index="7" instance=ExtResource("13_q3hwb")]
-position = Vector2(987, 476)
+[node name="Item" parent="." index="7" instance=ExtResource("12_kkoqe")]
+position = Vector2(254, 325)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="body_entered" from="House" to="." method="_on_house_body_entered"]

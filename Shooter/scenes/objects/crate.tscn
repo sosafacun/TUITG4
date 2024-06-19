@@ -9,9 +9,8 @@
 size = Vector2(178.999, 402.001)
 
 [node name="Crate" instance=ExtResource("1_3mukh")]
-collision_layer = 4
-collision_mask = 11
 script = ExtResource("2_gwtb1")
+item_spawn_count = 5
 metadata/_edit_lock_ = true
 
 [node name="HittableContainerBase" parent="." index="0"]

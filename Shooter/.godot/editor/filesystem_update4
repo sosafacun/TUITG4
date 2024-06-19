@@ -14,3 +14,4 @@ res://scenes/objects/toilet.gd
 res://scenes/objects/crate.gd
 res://scenes/levels/level.gd
 res://scenes/projectiles/laser.gd
+res://scenes/items/item.gd
