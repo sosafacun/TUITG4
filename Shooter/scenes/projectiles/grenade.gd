@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 const speed = 750
+@export var damage: float = 30
 
 @onready var entities:
 	get:
@@ -16,4 +17,5 @@ func explode():
 	$Explosion/GrenadeExplosionAnimation.play("explosion_animation")
 
 func _on_effective_blast_radius_body_entered(body):
-	body.hit(30)
+	if 'hit' in body:
+		body.hit(damage)
