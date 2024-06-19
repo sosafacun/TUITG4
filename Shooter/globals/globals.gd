@@ -17,4 +17,7 @@ var player_hp: int = 60:
 		player_hp = value
 		stat_change.emit()
 
+var can_player_be_hit: bool = true:
+	set(value):
+		can_player_be_hit = value
 var player_position: Vector2

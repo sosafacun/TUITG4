@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var speed: int
+@export var damage: int
 var direction: Vector2
 
 func _ready():
@@ -17,7 +18,7 @@ func emit_particles_and_light():
 
 func _on_body_entered(body):
 	if "hit" in body:
-		body.hit(10)
+		body.hit(damage)
 	queue_free()
 
 func _on_timer_timeout():

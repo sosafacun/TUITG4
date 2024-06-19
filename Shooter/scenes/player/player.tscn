@@ -48,5 +48,9 @@ texture = ExtResource("1_7l4x1")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_yibrj")
 
+[node name="IFramesAfterHit" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="timeout" from="LaserCD" to="." method="_on_laser_cd_timeout"]
 [connection signal="timeout" from="GrenadeCD" to="." method="_on_grenade_cd_timeout"]
+[connection signal="timeout" from="IFramesAfterHit" to="." method="_on_i_frames_after_hit_timeout"]

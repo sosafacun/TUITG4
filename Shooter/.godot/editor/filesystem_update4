@@ -5,3 +5,10 @@ res://scenes/enemies/HittableContainer.tscn
 res://scenes/levels/house.tres
 res://scenes/levels/inside.tscn
 res://scenes/projectiles/grenade.gd
+res://scenes/enemies/enemy_container.gd
+res://scenes/player/player.gd
+res://scenes/enemies/enemy_container.tscn
+res://globals/globals.gd
+res://scenes/projectiles/laser.gd
+res://scenes/levels/level.gd
+res://scenes/enemies/scout.tscn

@@ -8,6 +8,8 @@ var can_enemy_shoot: bool = true
 
 @export var gun_amount: int = 0
 @export var health: int = 0
+@export var damage: int = 10
+
 var selected_gun = gun_amount - 1
 
 func _process(_delta):
@@ -24,7 +26,7 @@ func enemy_engage():
 	var enemy_laser_position: Vector2 = active_gun.global_position
 	var enemy_laser_direction: Vector2 = (Globals.player_position - position).normalized()
 	
-	laser.emit(enemy_laser_position, enemy_laser_direction)
+	laser.emit(enemy_laser_position, enemy_laser_direction, damage)
 	
 	can_enemy_shoot = false
 	$AttackNode/ProjectileCD.start()
@@ -45,5 +47,5 @@ func _on_projectile_cd_timeout():
 
 func hit(_damage:int):
 	health -= _damage
-	if(health == 0):
+	if(health <= 0):
 		$".".queue_free()

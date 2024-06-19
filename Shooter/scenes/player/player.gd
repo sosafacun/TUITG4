@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed: float = 500
 @export var max_speed: int = 500
+@export var damage: int  = 10
 
 const laser_cd: float = 0.5
 const greande_cd: float = 1.5
@@ -31,7 +32,7 @@ func shoot(player_direction):
 	Globals.laser_amount -= 1
 	var laser_markers = $LaserStartPositions.get_children()
 	var selected_laser = laser_markers[randi() % laser_markers.size()]
-	player_shot_laser.emit(selected_laser.global_position, player_direction)
+	player_shot_laser.emit(selected_laser.global_position, player_direction, damage)
 	can_laser = false
 	$LaserCD.start()
 
@@ -56,4 +57,10 @@ func _on_laser_cd_timeout():
 	can_laser = true
 
 func hit(damage: int):
-	Globals.player_hp -= damage
+	if (Globals.can_player_be_hit == true):
+		Globals.player_hp -= damage
+		Globals.can_player_be_hit = false
+		$IFramesAfterHit.start()
+
+func _on_i_frames_after_hit_timeout():
+	Globals.can_player_be_hit = true

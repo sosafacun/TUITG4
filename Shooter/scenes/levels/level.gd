@@ -17,17 +17,18 @@ func _on_container_opened(spawn_point, direction):
 	item.direction = direction
 	$Items.call_deferred('add_child', item)
 
-func _on_enemy_engage(enemy_laser_position, enemy_laser_direction):
-	create_laser(enemy_laser_position, enemy_laser_direction, false)
+func _on_enemy_engage(enemy_laser_position, enemy_laser_direction, damage):
+	create_laser(enemy_laser_position, enemy_laser_direction, false, damage)
 
-func _on_player_player_shot_laser(pos, player_direction):
-	create_laser(pos, player_direction, true)
+func _on_player_player_shot_laser(pos, player_direction, damage):
+	create_laser(pos, player_direction, true, damage)
 	
-func create_laser(pos, direction, is_player_laser):
+func create_laser(pos, direction, is_player_laser, damage):
 	var laser = laser_scene.instantiate() as Area2D
 	laser.position = pos
 	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
 	laser.direction = direction
+	laser.damage = damage
 	if(is_player_laser):
 		$Projectiles.add_child(laser)
 	else:
