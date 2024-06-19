@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy1oikohp72jr"]
+
+[ext_resource type="PackedScene" uid="uid://dkqftdstqvgyq" path="res://scenes/enemies/enemy_container.tscn" id="1_emlmh"]
+[ext_resource type="Texture2D" uid="uid://b2j1scmgljfkt" path="res://resources/graphics/enemies/scout.png" id="2_byd7a"]
+[ext_resource type="Script" path="res://scenes/enemies/scout.gd" id="2_qp7n3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k8ohx"]
+radius = 53.6004
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f7qg3"]
+radius = 1062.25
+
+[node name="Scout" instance=ExtResource("1_emlmh")]
+script = ExtResource("2_qp7n3")
+gun_amount = 2
+
+[node name="EnemySprite" parent="." index="0"]
+position = Vector2(32, 24)
+rotation = 1.5708
+texture = ExtResource("2_byd7a")
+metadata/_edit_lock_ = true
+
+[node name="EnemyCollision" parent="." index="1"]
+shape = SubResource("CircleShape2D_k8ohx")
+metadata/_edit_lock_ = true
+
+[node name="AttackNode" parent="." index="2"]
+metadata/_edit_lock_ = true
+
+[node name="ProjectileCD" parent="AttackNode" index="0"]
+wait_time = 1.0
+
+[node name="EnemyProjectileSpawnPoints#Marker2D" type="Marker2D" parent="AttackNode/EnemyProjectileSpawnPoints" index="0"]
+position = Vector2(110, -30)
+
+[node name="EnemyProjectileSpawnPoints#Marker2D2" type="Marker2D" parent="AttackNode/EnemyProjectileSpawnPoints" index="1"]
+position = Vector2(123, 8)
+
+[node name="AttackRange" parent="AttackNode" index="2"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="AttackRangeCollision" parent="AttackNode/AttackRange" index="0"]
+shape = SubResource("CircleShape2D_f7qg3")

@@ -16,3 +16,5 @@ var hp: int = 60:
 	set(value):
 		hp = value
 		stat_change.emit()
+
+var player_position: Vector2

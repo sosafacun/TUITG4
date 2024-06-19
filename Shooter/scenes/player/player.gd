@@ -46,6 +46,7 @@ func move():
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
 	move_and_slide()
+	Globals.player_position = global_position
 	look_at(get_global_mouse_position())
 
 func _on_grenade_cd_timeout():

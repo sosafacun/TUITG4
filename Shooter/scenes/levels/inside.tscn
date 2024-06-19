@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ba5a6jti5mbj5"]
+[gd_scene load_steps=14 format=3 uid="uid://ba5a6jti5mbj5"]
 
 [ext_resource type="PackedScene" uid="uid://bawef3wu5kcqd" path="res://scenes/levels/level.tscn" id="1_0rptr"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_4nuvi"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bluxcsoctgmsm" path="res://resources/graphics/lights/textures/circle.png" id="5_yi6n2"]
 [ext_resource type="PackedScene" uid="uid://ci2vvcipvgkeo" path="res://scenes/objects/steam_vent.tscn" id="7_xuyf3"]
 [ext_resource type="PackedScene" uid="uid://ncpl4ucrobli" path="res://scenes/objects/toilet.tscn" id="8_ekcoa"]
+[ext_resource type="PackedScene" uid="uid://dy1oikohp72jr" path="res://scenes/enemies/scout.tscn" id="11_h3y3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmww0"]
 size = Vector2(1780.5, 624)
@@ -132,7 +133,13 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Player" parent="." index="7"]
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("11_h3y3v")]
+position = Vector2(-642, 1165)
+
+[node name="Scout2" parent="Enemies" index="1" instance=ExtResource("11_h3y3v")]
+position = Vector2(903, 1145)
+
+[node name="Player" parent="." index="8"]
 position = Vector2(196, 1600)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" index="7"]

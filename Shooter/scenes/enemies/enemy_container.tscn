@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkqftdstqvgyq"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy_container.gd" id="1_fvltv"]
+
+[node name="EnemyContainer" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 2
+collision_mask = 11
+script = ExtResource("1_fvltv")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+position = Vector2(26, 24)
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+
+[node name="AttackNode" type="Node2D" parent="."]
+
+[node name="ProjectileCD" type="Timer" parent="AttackNode"]
+wait_time = 0.5
+one_shot = true
+
+[node name="EnemyProjectileSpawnPoints" type="Node2D" parent="AttackNode"]
+
+[node name="AttackRange" type="Area2D" parent="AttackNode"]
+collision_layer = 16
+
+[node name="AttackRangeCollision" type="CollisionShape2D" parent="AttackNode/AttackRange"]
+
+[connection signal="timeout" from="AttackNode/ProjectileCD" to="." method="_on_projectile_cd_timeout"]
+[connection signal="body_entered" from="AttackNode/AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackNode/AttackRange" to="." method="_on_attack_range_body_exited"]
