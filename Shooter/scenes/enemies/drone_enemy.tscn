@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsae3l1usjo3p"]
+
+[ext_resource type="PackedScene" uid="uid://dkqftdstqvgyq" path="res://scenes/enemies/enemy_container.tscn" id="1_x8qxt"]
+[ext_resource type="Script" path="res://scenes/enemies/drone_enemy.gd" id="2_pvciv"]
+[ext_resource type="Texture2D" uid="uid://cox8fi2gxf7qv" path="res://resources/graphics/enemies/drone.png" id="3_uk5pq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_graqm"]
+radius = 71.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x4sd1"]
+radius = 1324.63
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_86fy8"]
+radius = 319.006
+
+[node name="DroneEnemy" instance=ExtResource("1_x8qxt")]
+script = ExtResource("2_pvciv")
+gun_amount = 2
+health = 50
+damage = 20
+speed = 350
+
+[node name="EnemySprite" parent="." index="0"]
+rotation = 1.5708
+texture = ExtResource("3_uk5pq")
+metadata/_edit_lock_ = true
+
+[node name="EnemyCollision" parent="." index="1"]
+shape = SubResource("CircleShape2D_graqm")
+metadata/_edit_lock_ = true
+
+[node name="AttackCD" parent="AttackNode" index="0"]
+wait_time = 0.5
+
+[node name="Marker2D" type="Marker2D" parent="AttackNode/EnemyProjectileSpawnPoints" index="0"]
+position = Vector2(14, -123)
+
+[node name="Marker2D2" type="Marker2D" parent="AttackNode/EnemyProjectileSpawnPoints" index="1"]
+position = Vector2(30, 121)
+
+[node name="DetectionRadius" parent="AttackNode" index="2"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="DetectionRadiusCollision" parent="AttackNode/DetectionRadius" index="0"]
+shape = SubResource("CircleShape2D_x4sd1")
+
+[node name="AttackRange" parent="AttackNode" index="3"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="AttackRangeCollision" parent="AttackNode/AttackRange" index="0"]
+shape = SubResource("CircleShape2D_86fy8")

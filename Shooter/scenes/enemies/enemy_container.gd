@@ -15,13 +15,9 @@ var can_enemy_shoot: bool = true
 
 var selected_gun = gun_amount - 1
 
-@onready var shader: ShaderMaterial
-func _ready():
-	
-	shader = $EnemySprite.ShaderMaterial.new()
-
 func _process(_delta):
 	if(player_detected):
+		move()
 		look_at(Globals.player_position)
 		if(player_nearby):
 			if (can_enemy_shoot):
@@ -44,6 +40,12 @@ func enemy_engage():
 	else:
 		selected_gun -= 1
 
+func move():
+	look_at(Globals.player_position)
+	var direction: Vector2 = (Globals.player_position - position).normalized()
+	velocity = direction * speed
+	move_and_slide()
+
 func _on_attack_range_body_entered(_body):
 	player_nearby = true
 func _on_attack_range_body_exited(_body):
@@ -54,13 +56,14 @@ func _on_projectile_cd_timeout():
 
 func hit(_damage:int):
 	health -= _damage
-	shader.set_shader_parameter("progress", 1)
+	$EnemySprite.material.set_shader_parameter("progress", 1)
+	$HitParticles.emitting = true
 	$HitBlink.start()
 	if(health <= 0):
 		$".".queue_free()
 
 func _on_hit_blink_timeout():
-	shader.set_shader_parameter("progress", 0)
+	$EnemySprite.material.set_shader_parameter("progress", 0)
 
 func _on_detection_radius_body_entered(_body):
 	player_detected = true

@@ -194,7 +194,6 @@ shape = SubResource("CircleShape2D_cibgd")
 metadata/_edit_lock_ = true
 
 [node name="GrenadeImage" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_4kea5")
 metadata/_edit_lock_ = true
@@ -203,7 +202,6 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Grenade_Flash" type="PointLight2D" parent="Explosion"]
-visible = false
 color = Color(0.72149, 0.113221, 0.112334, 1)
 energy = 10.0
 shadow_enabled = true
@@ -215,7 +213,6 @@ texture_scale = 0.08
 metadata/_edit_lock_ = true
 
 [node name="GrenadeExplosion" type="Sprite2D" parent="Explosion"]
-modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_3vgfu")
 hframes = 8
 vframes = 8
@@ -233,7 +230,6 @@ collision_layer = 8
 collision_mask = 7
 
 [node name="EffectiveBlastRadiusCollision" type="CollisionShape2D" parent="Explosion/EffectiveBlastRadius"]
-scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_0svmr")
 disabled = true
 

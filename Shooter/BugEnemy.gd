@@ -9,12 +9,6 @@ func _process(_delta):
 	if (can_enemy_shoot && player_nearby):
 		enemy_engage() #I have to work on this.
 
-func move(): #bug movement with an animation. It works
-	look_at(Globals.player_position)
-	var direction: Vector2 = (Globals.player_position - position).normalized()
-	velocity = direction * speed
-	move_and_slide()
-
 func _on_bug_animations_animation_finished():
 	if(player_nearby):
 		Globals.player_hp -= damage
