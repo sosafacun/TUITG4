@@ -8,7 +8,7 @@
 radius = 53.6004
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bxqu"]
-radius = 1207.7
+radius = 1165.44
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7qg3"]
 radius = 1062.25
@@ -36,6 +36,10 @@ position = Vector2(110, -30)
 
 [node name="EnemyProjectileSpawnPoints#Marker2D2" type="Marker2D" parent="AttackNode/EnemyProjectileSpawnPoints" index="1"]
 position = Vector2(123, 8)
+
+[node name="DetectionRadius" parent="AttackNode" index="2"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="DetectionRadiusCollision" parent="AttackNode/DetectionRadius" index="0"]
 shape = SubResource("CircleShape2D_2bxqu")

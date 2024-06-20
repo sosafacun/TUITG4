@@ -1,9 +1,9 @@
+CollisionShape2D
+Area2D
 Marker2D
 AnimatedSprite2D
 Node2D
 Node
-CollisionShape2D
-Area2D
 AnimatableBody2D
 Timer
 CollisionPolygon2D
