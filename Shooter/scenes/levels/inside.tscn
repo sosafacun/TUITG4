@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bluxcsoctgmsm" path="res://resources/graphics/lights/textures/circle.png" id="5_yi6n2"]
 [ext_resource type="PackedScene" uid="uid://ci2vvcipvgkeo" path="res://scenes/objects/steam_vent.tscn" id="7_xuyf3"]
 [ext_resource type="PackedScene" uid="uid://ncpl4ucrobli" path="res://scenes/objects/toilet.tscn" id="8_ekcoa"]
-[ext_resource type="PackedScene" uid="uid://dy1oikohp72jr" path="res://scenes/enemies/scout.tscn" id="11_h3y3v"]
+[ext_resource type="PackedScene" uid="uid://cp5qomj33hpc6" path="res://scenes/enemies/bug_enemy.tscn" id="12_8y70m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmww0"]
 size = Vector2(1780.5, 624)
@@ -39,7 +39,16 @@ layer_3/tile_data = PackedInt32Array(-327682, 196608, 0, -262146, 327680, 1, -19
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Objects" type="Node2D" parent="." index="2"]
+[node name="ExitGateArea" type="Area2D" parent="." index="2"]
+position = Vector2(-100, 2117)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
+position = Vector2(211, 514)
+shape = SubResource("RectangleShape2D_rmww0")
+
+[node name="Objects" type="Node2D" parent="." index="3"]
 
 [node name="Bed" parent="Objects" index="0" instance=ExtResource("4_5r7fw")]
 position = Vector2(-2765, -2092)
@@ -109,17 +118,8 @@ position = Vector2(-1061, -952)
 position = Vector2(-1776, -1365)
 rotation = 1.5708
 
-[node name="Projectiles" parent="." index="3"]
+[node name="Projectiles" parent="." index="4"]
 metadata/_edit_lock_ = true
-
-[node name="ExitGateArea" type="Area2D" parent="." index="4"]
-position = Vector2(-100, 2117)
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
-position = Vector2(119.25, -2)
-shape = SubResource("RectangleShape2D_rmww0")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="5"]
 position = Vector2(-3212, 359)
@@ -132,11 +132,8 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Scout" parent="Enemies" index="0" instance=ExtResource("11_h3y3v")]
-position = Vector2(543, 1499)
-
-[node name="Scout2" parent="Enemies" index="1" instance=ExtResource("11_h3y3v")]
-position = Vector2(-207, 1509)
+[node name="BugEnemy" parent="Enemies" index="0" instance=ExtResource("12_8y70m")]
+position = Vector2(-466, 1242)
 
 [node name="Player" parent="." index="8"]
 position = Vector2(196, 1600)

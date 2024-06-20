@@ -5,7 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r4bd2"]
 shader = ExtResource("2_kb0nk")
-shader_parameter/color = Color(0.173699, 1.87259e-07, 4.21144e-08, 1)
+shader_parameter/color = Color(0.821911, 1.73271e-06, 1.34766e-06, 1)
 shader_parameter/progress = 0.0
 
 [node name="EnemyContainer" type="CharacterBody2D" groups=["Enemies", "Entity"]]
@@ -20,11 +20,16 @@ material = SubResource("ShaderMaterial_r4bd2")
 
 [node name="AttackNode" type="Node2D" parent="."]
 
-[node name="ProjectileCD" type="Timer" parent="AttackNode"]
+[node name="AttackCD" type="Timer" parent="AttackNode"]
 wait_time = 0.1
 one_shot = true
 
 [node name="EnemyProjectileSpawnPoints" type="Node2D" parent="AttackNode"]
+
+[node name="DetectionRadius" type="Area2D" parent="AttackNode"]
+collision_layer = 16
+
+[node name="DetectionRadiusCollision" type="CollisionShape2D" parent="AttackNode/DetectionRadius"]
 
 [node name="AttackRange" type="Area2D" parent="AttackNode"]
 collision_layer = 16
@@ -35,7 +40,9 @@ collision_layer = 16
 wait_time = 0.1
 one_shot = true
 
-[connection signal="timeout" from="AttackNode/ProjectileCD" to="." method="_on_projectile_cd_timeout"]
+[connection signal="timeout" from="AttackNode/AttackCD" to="." method="_on_projectile_cd_timeout"]
+[connection signal="body_entered" from="AttackNode/DetectionRadius" to="." method="_on_detection_radius_body_entered"]
+[connection signal="body_exited" from="AttackNode/DetectionRadius" to="." method="_on_detection_radius_body_exited"]
 [connection signal="body_entered" from="AttackNode/AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackNode/AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="HitBlink" to="." method="_on_hit_blink_timeout"]
