@@ -12,12 +12,13 @@ var can_enemy_shoot: bool = true
 @export var damage: int = 10
 @export var speed: int = 0
 
-var shader: ShaderMaterial
 
 var selected_gun = gun_amount - 1
 
+@onready var shader: ShaderMaterial
 func _ready():
-	shader = ShaderMaterial.new()
+	
+	shader = $EnemySprite.ShaderMaterial.new()
 
 func _process(_delta):
 	if(player_detected):
